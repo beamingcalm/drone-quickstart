@@ -3,15 +3,37 @@ kind: pipeline
 type: docker
 name: default
 
-platform:
-  os: linux
-  arch: arm64
-
 steps:
-- name: hello
-  image: busybox
-  commands:
-  - echo hello world
+  - name: setup
+    image: alpine
+    commands:
+      - echo "Setting up the pipeline"
+
+  - name: install-dependencies
+    image: node:14
+    commands:
+      - npm install
+
+  - name: run-unit-tests
+    image: node:14
+    commands:
+      - npm test
+
+  - name: build
+    image: node:14
+    commands:
+      - npm run build
+
+  - name: code-quality-checks
+    image: python:3.9
+    commands:
+      - pip install pylint
+      - pylint src/
+
+  - name: deploy
+    image: alpine
+    commands:
+      - echo "Random deployment"
  
 trigger:
   branch:
