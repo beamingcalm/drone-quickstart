@@ -13,6 +13,8 @@ steps:
     image: node:14
     commands:
       - npm install
+      - npm fund
+      - npm audit fix
 
   - name: run-unit-tests
     image: node:14
