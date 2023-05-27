@@ -1,4 +1,4 @@
-def CALCULATE_AVERAGE(numbers):
+def calculate_average(numbers):
     """
     Calculate the average of a list of numbers.
 
@@ -13,7 +13,7 @@ def CALCULATE_AVERAGE(numbers):
         return None
     return sum(numbers) / len(numbers)
 
-def IS_EVEN(number):
+def is_even(number):
     """
     Check if a number is even.
 
@@ -26,7 +26,7 @@ def IS_EVEN(number):
     """
     return number % 2 == 0
 
-def COUNT_EVEN_NUMBERS(numbers):
+def count_even_numbers(numbers):
     """
     Count the number of even numbers in a list.
 
@@ -39,13 +39,13 @@ def COUNT_EVEN_NUMBERS(numbers):
     """
     count = 0
     for number in numbers:
-        if IS_EVEN(number):
+        if is_even(number):
             count += 1
     return count
 
 if __name__ == "__main__":
     numbers = [1, 2, 3, 4, 5, 6]
-    average = CALCULATE_AVERAGE(numbers)
+    average = calculate_average(numbers)
     print(f"Average: {average}")
-    EVEN_COUNT = COUNT_EVEN_NUMBERS(numbers)
-    print(f"Number of even numbers: {EVEN_COUNT}")
+    even_count = count_even_numbers(numbers)
+    print(f"Number of even numbers: {even_count}")
