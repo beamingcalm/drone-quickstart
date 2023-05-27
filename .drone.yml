@@ -9,33 +9,28 @@ steps:
     commands:
       - echo "Setting up the pipeline"
 
-  - name: install-dependencies
-    image: node:14
-    commands:
-      - npm install
-      - npm fund
-      - npm audit fix
-
-  - name: run-unit-tests
-    image: node:14
-    commands:
-      - npm test
-
   - name: build
-    image: node:14
+    image: gcc:latest
     commands:
-      - npm run build
+      - g++ -o hello_cpp hello.cpp
+      - ./hello_cpp
 
-  - name: code-quality-checks
+  - name: test-python
+    image: python:3.9
+    commands:
+      - python test.py
+
+  - name: lint-python
     image: python:3.9
     commands:
       - pip install pylint
-      - pylint src/
+      - pylint script.py
 
-  - name: deploy
+  - name: cleanup
     image: alpine
     commands:
-      - echo "Random deployment"
+      - rm -rf build/
+      - echo "Cleanup completed."
  
 trigger:
   branch:
