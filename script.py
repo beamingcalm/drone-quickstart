@@ -1,8 +1,8 @@
 """
-This script demonstrates calculating the average of a list of numbers and counting the number of even numbers.
+This script demonstrates calculating.
 """
 
-def calculate_average(numbers):
+def calculate_average(nums):
     """
     Calculate the average of a list of numbers.
 
@@ -12,9 +12,9 @@ def calculate_average(numbers):
     Returns:
         float: Average value.
     """
-    if len(numbers) == 0:
+    if len(nums) == 0:
         return None
-    return sum(numbers) / len(numbers)
+    return sum(nums) / len(nums)
 
 def is_even(number):
     """
@@ -28,7 +28,7 @@ def is_even(number):
     """
     return number % 2 == 0
 
-def count_even_numbers(numbers):
+def count_even_numbers(nums):
     """
     Count the number of even numbers in a list.
 
@@ -39,14 +39,14 @@ def count_even_numbers(numbers):
         int: Count of even numbers.
     """
     count = 0
-    for number in numbers:
+    for number in nums:
         if is_even(number):
             count += 1
     return count
 
 if __name__ == "__main__":
-    numbers = [1, 2, 3, 4, 5, 6]
-    average = calculate_average(numbers)
+    nums = [1, 2, 3, 4, 5, 6]
+    average = calculate_average(nums)
     print(f"Average: {average}")
-    EVEN_COUNT = count_even_numbers(numbers)
+    EVEN_COUNT = count_even_numbers(nums)
     print(f"Number of even numbers: {EVEN_COUNT}")
