@@ -7,7 +7,7 @@ steps:
   - name: setup
     image: alpine
     commands:
-      - echo "Setting up the pipeline"
+      - echo "Setting up the pipeline."
 
   - name: build
     image: gcc:latest
