@@ -7,7 +7,7 @@ steps:
   - name: setup
     image: alpine
     commands:
-      - echo "Setting up the pipeline."
+      - echo "Setting up the pipeline"
 
   - name: build
     image: gcc:latest
@@ -30,7 +30,7 @@ steps:
     image: alpine
     commands:
       - rm -rf build/
-      - echo "Cleanup completed."
+      - echo "Cleanup completed"
  
 trigger:
   branch:
